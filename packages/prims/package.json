@@ -1,0 +1,48 @@
+{
+  "name": "prims",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "description": "Batch processing images",
+  "author": {
+    "email": "luca.poldelmengo@gmail.com",
+    "name": "Luca Poldelmengo",
+    "url": "https://github.com/pldg"
+  },
+  "homepage": "https://github.com/pldg/prims/tree/master/packages/prims",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pldg/prims"
+  },
+  "bugs": {
+    "url": "https://github.com/pldg/prims/issues"
+  },
+  "dependencies": {
+    "sharp": "^0.22.1"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "keywords": [
+    "responsive",
+    "image",
+    "images",
+    "srcset",
+    "process",
+    "processing",
+    "optimization",
+    "convert",
+    "resize",
+    "rename",
+    "jpg",
+    "webp",
+    "png",
+    "tiff"
+  ],
+  "engines": {
+    "node": ">= 8"
+  },
+  "main": "./lib/prims",
+  "scripts": {
+    "test": "jest && node tests/integration-tests/run-integration-tests.js"
+  }
+}

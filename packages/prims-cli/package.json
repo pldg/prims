@@ -1,0 +1,53 @@
+{
+  "name": "prims-cli",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "description": "Batch processing images",
+  "author": {
+    "email": "luca.poldelmengo@gmail.com",
+    "name": "Luca Poldelmengo",
+    "url": "https://github.com/pldg"
+  },
+  "homepage": "https://github.com/pldg/prims/tree/master/packages/prims-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pldg/prims"
+  },
+  "bugs": {
+    "url": "https://github.com/pldg/prims/issues"
+  },
+  "dependencies": {
+    "inquirer": "^6.3.1",
+    "prims": "^0.1.0"
+  },
+  "keywords": [
+    "responsive",
+    "image",
+    "images",
+    "srcset",
+    "process",
+    "processing",
+    "optimization",
+    "convert",
+    "resize",
+    "rename",
+    "jpg",
+    "webp",
+    "png",
+    "tiff",
+    "interactive",
+    "cli",
+    "command line interface",
+    "inquirer"
+  ],
+  "engines": {
+    "node": ">= 8"
+  },
+  "main": "./lib/prims-cli.js",
+  "bin": {
+    "prims": "./lib/prims-cli.js"
+  },
+  "scripts": {
+    "test": "node ./lib/prims-cli.js"
+  }
+}
