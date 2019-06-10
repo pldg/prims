@@ -1,6 +1,6 @@
 # Prims CLI
 
-## Introduction
+![downloads-badge](https://img.shields.io/npm/dt/prims-cli.svg)
 
 Interactive command line interface for [prims](../prims/).
 

@@ -1,6 +1,6 @@
 # Examples
 
-See also [integration-tests](./tests/integration-tests) for more examples.
+See also [integration-tests](../tests/integration-tests) for more examples.
 
 ## Without options
 

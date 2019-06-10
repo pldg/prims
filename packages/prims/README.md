@@ -1,5 +1,7 @@
 # Prims
 
+![downloads-badge](https://img.shields.io/npm/dt/prims.svg)
+
 A program built on top of [sharp](https://github.com/lovell/sharp) to batch processing images from an input directory.
 
 - Support `jpeg`, `png`, `webp`, `tiff` images.
