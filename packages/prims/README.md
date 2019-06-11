@@ -20,7 +20,7 @@ I've built *prims* to easily work with [responsive images](https://developer.moz
 
 `npm install --save-dev prims`
 
-You can also install the optional [prims-cli](../prims-cli/).
+You can also install the optional [prims-cli](https://github.com/pldg/prims/blob/master/packages/prims-cli).
 
 ## Quick Start
 
