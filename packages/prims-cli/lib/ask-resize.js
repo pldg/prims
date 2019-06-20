@@ -28,7 +28,7 @@ function ask_widths() {
   return inquirer.prompt([{
     type: 'input',
     name: 'widths',
-    message: 'List of widths',
+    message: 'List resize widths',
     filter: widths => widths.trim().split(' ').map(Number),
     validate: widths => widths.some(w => isNaN(w)) ? errorOnlyNums() : true
   }]);
@@ -38,7 +38,7 @@ function ask_heights() {
   return inquirer.prompt([{
     type: 'input',
     name: 'heights',
-    message: 'List of heights',
+    message: 'List resize heights',
     filter: heights => heights.trim().split(' ').map(Number),
     validate: heights => heights.some(h => isNaN(h)) ? errorOnlyNums() : true
   }]);
@@ -50,7 +50,7 @@ function ask_fit() {
   return inquirer.prompt([{
     type: 'rawlist',
     name: 'fit',
-    message: 'Choose how the image should fit both provided dimensions',
+    message: 'Choose how image should fit',
     choices: [
       'cover',
       'contain',

@@ -14,14 +14,11 @@ async function readInputFolder(input, match) {
           return !isFolder;
         }
       })
-      .map(file => {
-        delete file.stat;
-        return file;
-      });
+      .map(file => file);
 
     return files;
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    throw new Error(err);
   }
 }
 

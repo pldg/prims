@@ -11,7 +11,7 @@ function setOptions(options = {}) {
 
   if (!options.match) options.match = false;
 
-  if (!options.formats) options.formats = {};
+  if (!options.convert) options.convert = {};
 
   if (!options.resize) options.resize = {};
 

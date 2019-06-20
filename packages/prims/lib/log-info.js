@@ -1,8 +1,8 @@
 let count = 1;
 
 function logInfo(ctx) {
-  let { image, info } = ctx;
-  let { width, height, format, size } = info;
+  const { image, info } = ctx;
+  const { width, height, format, size } = info;
 
   const processed_image_info = {
     inputPath: image.options.input.file,

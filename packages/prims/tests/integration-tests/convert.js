@@ -4,23 +4,23 @@ const prims = require('../../lib/prims');
 const readFiles = require('../../lib/utils/read-files');
 
 /**
- * - Test for `formats` option.
+ * - Test for `convert` option.
  * - It should convert *doré-inferno-dante.jpg* and *waterhouse-miranda* images
- * to jpeg, png, webp and tiff formats.
- * - Formats folder should contains 8 files in total.
+ * to .jpeg, .png, .webp and .tiff.
+ * - Output folder should contains 8 files in total.
  * - *sun.svg* should not be processed and should log a warning.
  * - *doré-inferno-dante.jpeg* should looks pixelated because of `quality: 5`.
  */
 
-async function testFormats() {
+async function testConvert() {
   try {
     const input = path.resolve(__dirname, '../images');
-    const output = path.resolve(__dirname, '../output-images/formats');
+    const output = path.resolve(__dirname, '../output-images/convert');
 
     await prims({
       input,
       output,
-      formats: {
+      convert: {
         jpeg: {
           quality: 5
         },
@@ -51,4 +51,4 @@ async function testFormats() {
   }
 }
 
-module.exports = testFormats;
+module.exports = testConvert;

@@ -1,8 +1,9 @@
 const path = require('path');
 
 function generateOutputPath(ctx) {
-  let { info, name, output, naming } = ctx;
-  let { format, width, height } = info;
+  const { info, name, output, naming } = ctx;
+  const { format } = info;
+  let { width, height } = info;
 
   width = width + 'w';
   height = height + 'h';

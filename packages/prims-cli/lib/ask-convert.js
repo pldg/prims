@@ -1,35 +1,35 @@
 const inquirer = require('inquirer');
 const { errorOnlyNums } = require('./errors');
 
-async function ask_formats(formats = {}) {
+async function ask_convert(convert = {}) {
   const { format } = await ask_format();
 
   if (format !== 'Do not convert') {
     if (format === 'png') {
       const { compressionLevel } = await ask_png_compression();
 
-      formats[format] = { compressionLevel };
+      convert[format] = { compressionLevel };
     } else {
       const { quality } = await ask_jpeg_tiff_webp_compression();
 
-      formats[format] = { quality };
+      convert[format] = { quality };
     }
 
     const { next } = await ask_proceed();
 
     if (next === 'Select another format') {
-      return await ask_formats(formats);
+      return await ask_convert(convert);
     }
   }
 
-  return formats;
+  return convert;
 }
 
 function ask_format() {
   return inquirer.prompt([{
     type: 'rawlist',
     name: 'format',
-    message: 'Choose a conversion format',
+    message: 'Choose conversion format',
     choices: [
       'jpeg',
       'webp',
@@ -94,4 +94,4 @@ function ask_proceed() {
   }]);
 }
 
-module.exports = ask_formats;
+module.exports = ask_convert;

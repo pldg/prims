@@ -1,7 +1,7 @@
 const validFormats = require('./valid-formats');
 
 function isInputExtensionValid(ctx) {
-  let { name, ext } = ctx;
+  const { name, ext } = ctx;
   const formatIsValid = validFormats.indexOf(ext) > -1;
 
   if (formatIsValid) {

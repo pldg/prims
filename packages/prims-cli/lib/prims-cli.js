@@ -4,7 +4,7 @@ const prims = require('prims');
 const ask_input = require('./ask-input');
 const ask_output = require('./ask-output');
 const ask_resize = require('./ask-resize');
-const ask_formats = require('./ask-formats');
+const ask_convert = require('./ask-convert');
 const ask_metadata = require('./ask-metadata');
 const colorLightBlue = '\033[1;34m';
 const colorReset = '\033[0m';
@@ -20,14 +20,14 @@ console.info(
 async function cli() {
   const { input } = await ask_input();
   const { output } = await ask_output(input);
-  const formats = await ask_formats();
+  const convert = await ask_convert();
   const resize = await ask_resize();
   const { withMetadata } = await ask_metadata();
 
   const options = {
     input,
     output,
-    formats,
+    convert,
     resize,
     withMetadata
   };

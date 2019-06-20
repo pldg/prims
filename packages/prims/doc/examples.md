@@ -10,7 +10,7 @@ prims();
 
 - If `input` option is not set, load files from current working directory (unsupported formats are automatically skipped).
 - If `output` option is not set, output images to `path.join(process.cwd(), 'processed-images')` folder.
-- If `formats` option is not set, compress images to [sharp defaults](http://sharp.pixelplumbing.com/en/stable/api-output/), preserving original format (`.jpg` images will be converted to `.jpeg`).
+- If `convert` option is not set, compress images to [sharp defaults](http://sharp.pixelplumbing.com/en/stable/api-output/), preserving original format (`.jpg` images will be converted to `.jpeg`).
 - If `resize` option is not set, do not resize images.
 
 Output:
@@ -107,7 +107,7 @@ Output:
 const prims = require('prims');
 
 prims({
-  formats: {
+  convert: {
     png: {},
     webp: {}
   }
@@ -127,7 +127,7 @@ Output:
 const prims = require('prims');
 
 prims({
-  formats: {
+  convert: {
     png: {
       compressionLevel: 3
     },

@@ -3,7 +3,7 @@ const logInfo = require('./log-info');
 
 async function save(ctx) {
   try {
-    let { image, log } = ctx;
+    const { image, log } = ctx;
 
     const { info } = await image.toBuffer({ resolveWithObject: true });
 

@@ -1,9 +1,9 @@
 function convertToFormats(ctx) {
-  let { image, formats } = ctx;
+  const { image, convert } = ctx;
   const convertedImages = [];
 
-  for (const format of Object.keys(formats)) {
-    let options = formats[format];
+  for (const format of Object.keys(convert)) {
+    const options = convert[format];
 
     const converted = image
       .toFormat(format, options)
@@ -16,7 +16,7 @@ function convertToFormats(ctx) {
 }
 
 function convertToInputExtension(ctx) {
-  let { ext, image } = ctx;
+  const { ext, image } = ctx;
 
   return image.toFormat(ext);
 }

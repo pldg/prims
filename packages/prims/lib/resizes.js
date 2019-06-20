@@ -1,6 +1,6 @@
 function resizes(ctx) {
-  let { resize, image } = ctx;
-  let { widths, heights } = resize;
+  const { resize, image } = ctx;
+  const { widths, heights } = resize;
   const resizedImages = [];
 
   if (widths && !heights) {

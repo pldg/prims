@@ -13,7 +13,7 @@ describe('Set options', () => {
       input,
       match: false,
       output: path.resolve(input, default_output_dir),
-      formats: {},
+      convert: {},
       resize: {},
       naming: {
         separator: '_'
@@ -28,7 +28,7 @@ describe('Set options', () => {
       input: path.resolve(__dirname, 'images'),
       match: true,
       output: path.resolve(__dirname, 'output-images'),
-      formats: {
+      convert: {
         webp: {
           quality: 60
         }
@@ -52,7 +52,7 @@ describe('Set options', () => {
       input: undefined,
       match: undefined,
       output: undefined,
-      formats: undefined,
+      convert: undefined,
       resize: undefined,
       withMetadata: undefined,
       log: undefined
@@ -62,7 +62,7 @@ describe('Set options', () => {
       input: default_input_path,
       match: false,
       output: path.resolve(default_input_path, default_output_dir),
-      formats: {},
+      convert: {},
       resize: {},
       naming: {
         separator: '_'

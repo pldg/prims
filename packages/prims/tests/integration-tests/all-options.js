@@ -24,7 +24,7 @@ async function testAllOptions() {
       output,
 
       // Convert to those formats
-      formats: {
+      convert: {
         jpeg: {
           quality: 5
         },

@@ -5,7 +5,7 @@
   input: String,
   match: /Regex/,
   output: String,
-  formats: {
+  convert: {
     jpeg: Object,
     webp: Object,
     png: Object,
@@ -41,7 +41,7 @@
 | options.input | `String` | Absolute path to input folder | `process.cwd()` |
 | options.match | `Regex` | Load only files that match regex | `undefined` |
 | options.output | `String` | Absolute path to output folder | `path.join(input, 'processed-images')` |
-| options.formats | `Object` | List of [output formats](http://sharp.pixelplumbing.com/en/stable/api-output/#toformat) and their quality | `undefined` use same format of the image with default Sharp quality |
+| options.convert | `Object` | List of [output formats](http://sharp.pixelplumbing.com/en/stable/api-output/#toformat) and their quality | `undefined` use same format of the image with default Sharp quality |
 | options.resize | `Object` | Accept Sharp [resize options](http://sharp.pixelplumbing.com/en/stable/api-resize/#parameters) object, but `width` is substituted with `widths` array and `height` is substituted with `heights` array | `undefined` do not resize |
 | options.resize.widths | `Number[]` | Image will be resized to those widths in px (aspect ratio is preserved if `heights` is omitted) | `undefined` do not resize width |
 | options.resize.heights | `Number` | Image will be resized to those heights in px (aspect ratio is preserved if `widths` is omitted) | `undefined` do not resize height |

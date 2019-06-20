@@ -2,7 +2,7 @@ const path = require('path');
 const deleteFolderRecursive = require('../delete-folder-recursive');
 const testWithoutOptions = require('./without-options');
 const testMatch = require('./match');
-const testFormats = require('./formats');
+const testConvert = require('./convert');
 const testResizeWidths = require('./resize-widths');
 const testResizeWidthsAndHeights = require('./resize-widths-heights');
 const testAllOptions = require('./all-options');
@@ -23,7 +23,7 @@ runIntegrationTests();
 async function runIntegrationTests() {
   await testWithoutOptions();
   await testMatch();
-  await testFormats();
+  await testConvert();
   await testResizeWidths();
   await testResizeWidthsAndHeights();
   await testAllOptions();

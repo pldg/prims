@@ -27,7 +27,7 @@ const prims = require('prims');
 
 prims({
   input: path.resolve(__dirname, './images'),
-  formats: {
+  convert: {
     jpeg: {
       quality: 70
     },

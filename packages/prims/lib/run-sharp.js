@@ -8,13 +8,13 @@ const resizes = require('./resizes');
 const save = require('./save');
 
 async function runSharp(ctx) {
-  let { filepath, withMetadata, formats, resize } = ctx;
+  const { filepath, withMetadata, convert, resize } = ctx;
 
   ctx.image = sharp(filepath);
 
   if (withMetadata) ctx.image.withMetadata();
 
-  const have_formats = !isObjectLiteralEmpty(formats);
+  const have_convert = !isObjectLiteralEmpty(convert);
   const have_resize = !isObjectLiteralEmpty(resize);
 
   /**
@@ -45,12 +45,12 @@ async function runSharp(ctx) {
    * - `${name}_${width}w_${height}h.${format}`
    *
    * This procedure is done for each combination of
-   * widths/heights/formats (the user `options`),
+   * `resize.widths`, `resize.heights` and `convert` formats
    * as well as for each image in the input directory.
    *
    */
 
-  if (have_formats && have_resize) {
+  if (have_convert && have_resize) {
     for (const converted of convertToFormats(ctx)) {
       ctx.image = converted;
 
@@ -60,13 +60,13 @@ async function runSharp(ctx) {
         await save(ctx);
       }
     }
-  } else if (have_formats && !have_resize) {
+  } else if (have_convert && !have_resize) {
     for (const converted of convertToFormats(ctx)) {
       ctx.image = converted;
 
       await save(ctx);
     }
-  } else if (!have_formats && have_resize) {
+  } else if (!have_convert && have_resize) {
     for (const resized of resizes(ctx)) {
       ctx.image = resized;
 

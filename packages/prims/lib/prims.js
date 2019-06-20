@@ -18,7 +18,7 @@ const runSharp = require('./run-sharp');
  *
  * @param {String} [options.output] Absolute path to output folder.
  *
- * @param {Object} [options.formats] List of [output
+ * @param {Object} [options.convert] List of [output
  * formats](http://sharp.pixelplumbing.com/en/stable/api-output/#toformat) and
  * their quality. If `undefined` use same format of the image with default Sharp
  * quality.
@@ -49,7 +49,7 @@ async function prims(options = {}) {
   try {
     options = setOptions(options);
 
-    let { input, output, match } = options;
+    const { input, output, match } = options;
 
     // Create output folder
     createDirByPathSync(output);
