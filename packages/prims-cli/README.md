@@ -14,7 +14,7 @@ Batch processing images from an input directory.
 
 Just type `prims` and follow the interactive questions.
 
-![prims-cli](https://user-images.githubusercontent.com/24630716/59795357-5569c900-92db-11e9-93dd-836fce0be098.gif)
+![prims-cli ](https://user-images.githubusercontent.com/24630716/59870584-177dab00-9396-11e9-9619-2ccf8f67d323.gif)
 
 ## Test locally
 
