@@ -41,9 +41,9 @@ async function testFormats() {
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       if (i < 4) {
-        assert.strictEqual(file.name, 'doré-inferno-dante_400w_507h');
+        assert.strictEqual(file.name, 'doré-inferno-dante');
       } else {
-        assert.strictEqual(file.name, 'waterhouse-miranda_400w_288h');
+        assert.strictEqual(file.name, 'waterhouse-miranda');
       }
     }
   } catch (err) {

@@ -2,19 +2,17 @@
 
 ![downloads-badge](https://img.shields.io/npm/dt/prims.svg)
 
-A program built on top of [sharp](https://github.com/lovell/sharp) to batch processing images from an input directory.
+A program built on top of [sharp](https://github.com/lovell/sharp) to batch processing images from an input directory. A simple way to generate [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
 
-- Support `jpeg`, `png`, `webp`, `tiff` images.
-- Batch convert to a list of specified formats.
-- Batch resize to a list of specified widths and/or heights.
-- Fit image (cover, contain, fill).
+- Process multiple images.
+- Convert to `jpeg`, `png`, `webp`, `tiff`.
+- Resize to a list of specified widths and heights.
+- Fit image (cover, contain, fill, inside, outside).
 - Preserve or remove image metadata.
-- Automatically rename.
+- Customize naming convention.
 - Optional interactive CLI.
-- Sharp is the only dependency.
+- Lightweight (sharp is the only dependency).
 - Runs in nodejs v8 and up.
-
-I've built *prims* to easily work with [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) in webpages.
 
 ## Install
 
@@ -27,50 +25,49 @@ You can also install the optional [prims-cli](https://github.com/pldg/prims/blob
 ```js
 const prims = require('prims');
 
-const options = {
+prims({
   input: path.resolve(__dirname, './images'),
   formats: {
     jpeg: {
-      quality: 70,
-      progressive: true
+      quality: 70
     },
-    png: {
-      compressionLevel: 3
-    },
-    webp: {}
+    webp: {
+      quality: 60
+    }
   },
   resize: {
-    widths: [ 750, 1280 ]
+    widths: [ 400, 800 ]
   }
-};
-
-prims(options);
+});
 ```
 
-1. Load files inside `images` folder (unsupported formats are automatically skipped).
-2. Convert images to:
-    - [`jpeg`](http://sharp.pixelplumbing.com/en/stable/api-output/#jpeg) at 70% quality, use progressive scan.
-    - [`png`](http://sharp.pixelplumbing.com/en/stable/api-output/#png) at 3 compression level.
-    - [`webp`](http://sharp.pixelplumbing.com/en/stable/api-output/#webp) at default *sharp* quality.
-3. Each converted images will also be [resized](http://sharp.pixelplumbing.com/en/stable/api-resize/) to 750px and to 1280px widths.
-4. Because `resize.heights` is omitted, height for each image is calculated automatically to preserve aspect ratio.
-5. Rename each image `[name]_[width]w_[height]h.[ext]`.
-6. Output all processed images to `./images/processed-images`.
+- Read files inside `images` folder.
+- Convert images to [`jpeg`](http://sharp.pixelplumbing.com/en/stable/api-output/#jpeg) at 70% quality and to [`webp`](http://sharp.pixelplumbing.com/en/stable/api-output/#webp) at 60% quality.
+- Each converted images will also be [resized](http://sharp.pixelplumbing.com/en/stable/api-resize/) to the selected `resize.widths`.
+- Because `resize.heights` is omitted, height for each image is calculated automatically to preserve aspect ratio.
+- Output all processed images to `./images/processed-images/`.
+
+Output:
+
+- `[name]_400w.jpeg`
+- `[name]_400w.webp`
+- `[name]_800w.jpeg`
+- `[name]_800w.webp`
 
 ## Examples
 
-Go to [examples](./doc/examples.md) page.
+Go to [examples](https://github.com/pldg/prims/blob/master/packages/prims/doc/examples.md) page.
 
 ## API
 
-Go to [api](./doc/api.md) page.
+Go to [api](https://github.com/pldg/prims/blob/master/packages/prims/doc/api.md) page.
 
 ## Test locally
 
 `yarn run test`
 
-See [tests](./tests) folder.
+See [tests](https://github.com/pldg/prims/tree/master/packages/prims/tests) folder.
 
 ## Contribution
 
-*Prims* is still in development, all contributions are welcome.
+Contributions are welcome.

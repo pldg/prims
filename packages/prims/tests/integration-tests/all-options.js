@@ -52,6 +52,10 @@ async function testAllOptions() {
         fit: 'contain'
       },
 
+      naming: {
+        separator: '@'
+      },
+
       // Include all metadata
       withMetadata: true
     });
@@ -60,25 +64,25 @@ async function testAllOptions() {
 
     assert.strictEqual(files.length, 16);
 
-    assert.strictEqual(`${files[0].name}.${files[0].ext}`, 'doré-inferno-dante_300w_200h.jpeg');
-    assert.strictEqual(`${files[1].name}.${files[1].ext}`, 'doré-inferno-dante_300w_200h.png');
-    assert.strictEqual(`${files[2].name}.${files[2].ext}`, 'doré-inferno-dante_300w_200h.tiff');
-    assert.strictEqual(`${files[3].name}.${files[3].ext}`, 'doré-inferno-dante_300w_200h.webp');
+    assert.strictEqual(`${files[0].name}.${files[0].ext}`, 'doré-inferno-dante@300w@200h.jpeg');
+    assert.strictEqual(`${files[1].name}.${files[1].ext}`, 'doré-inferno-dante@300w@200h.png');
+    assert.strictEqual(`${files[2].name}.${files[2].ext}`, 'doré-inferno-dante@300w@200h.tiff');
+    assert.strictEqual(`${files[3].name}.${files[3].ext}`, 'doré-inferno-dante@300w@200h.webp');
 
-    assert.strictEqual(`${files[4].name}.${files[4].ext}`, 'doré-inferno-dante_300w_500h.jpeg');
-    assert.strictEqual(`${files[5].name}.${files[5].ext}`, 'doré-inferno-dante_300w_500h.png');
-    assert.strictEqual(`${files[6].name}.${files[6].ext}`, 'doré-inferno-dante_300w_500h.tiff');
-    assert.strictEqual(`${files[7].name}.${files[7].ext}`, 'doré-inferno-dante_300w_500h.webp');
+    assert.strictEqual(`${files[4].name}.${files[4].ext}`, 'doré-inferno-dante@300w@500h.jpeg');
+    assert.strictEqual(`${files[5].name}.${files[5].ext}`, 'doré-inferno-dante@300w@500h.png');
+    assert.strictEqual(`${files[6].name}.${files[6].ext}`, 'doré-inferno-dante@300w@500h.tiff');
+    assert.strictEqual(`${files[7].name}.${files[7].ext}`, 'doré-inferno-dante@300w@500h.webp');
 
-    assert.strictEqual(`${files[8].name}.${files[8].ext}`, 'doré-inferno-dante_800w_200h.jpeg');
-    assert.strictEqual(`${files[9].name}.${files[9].ext}`, 'doré-inferno-dante_800w_200h.png');
-    assert.strictEqual(`${files[10].name}.${files[10].ext}`, 'doré-inferno-dante_800w_200h.tiff');
-    assert.strictEqual(`${files[11].name}.${files[11].ext}`, 'doré-inferno-dante_800w_200h.webp');
+    assert.strictEqual(`${files[8].name}.${files[8].ext}`, 'doré-inferno-dante@800w@200h.jpeg');
+    assert.strictEqual(`${files[9].name}.${files[9].ext}`, 'doré-inferno-dante@800w@200h.png');
+    assert.strictEqual(`${files[10].name}.${files[10].ext}`, 'doré-inferno-dante@800w@200h.tiff');
+    assert.strictEqual(`${files[11].name}.${files[11].ext}`, 'doré-inferno-dante@800w@200h.webp');
 
-    assert.strictEqual(`${files[12].name}.${files[12].ext}`, 'doré-inferno-dante_800w_500h.jpeg');
-    assert.strictEqual(`${files[13].name}.${files[13].ext}`, 'doré-inferno-dante_800w_500h.png');
-    assert.strictEqual(`${files[14].name}.${files[14].ext}`, 'doré-inferno-dante_800w_500h.tiff');
-    assert.strictEqual(`${files[15].name}.${files[15].ext}`, 'doré-inferno-dante_800w_500h.webp');
+    assert.strictEqual(`${files[12].name}.${files[12].ext}`, 'doré-inferno-dante@800w@500h.jpeg');
+    assert.strictEqual(`${files[13].name}.${files[13].ext}`, 'doré-inferno-dante@800w@500h.png');
+    assert.strictEqual(`${files[14].name}.${files[14].ext}`, 'doré-inferno-dante@800w@500h.tiff');
+    assert.strictEqual(`${files[15].name}.${files[15].ext}`, 'doré-inferno-dante@800w@500h.webp');
   } catch (err) {
     throw new Error(err);
   }

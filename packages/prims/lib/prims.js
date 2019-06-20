@@ -34,6 +34,12 @@ const runSharp = require('./run-sharp');
  * heights in px (aspect ratio is preserved if `widths` is omitted). If
  * `undefined` do not resize height.
  *
+ * @param {Object} [options.naming] Change naming convention.
+ * @param {Object} [options.naming.separator] Choose a char to separate image
+ * name from its dimensions.
+ * @param {Object} [options.naming.width] Output width dimension `[width]w`.
+ * @param {Object} [options.naming.height] Output height dimension `[height]h`.
+ *
  * @param {Boolean} [options.withMetadata] If `true` image metadata will be
  * preserved.
  *
@@ -42,6 +48,7 @@ const runSharp = require('./run-sharp');
 async function prims(options = {}) {
   try {
     options = setOptions(options);
+
     let { input, output, match } = options;
 
     // Create output folder
@@ -50,8 +57,7 @@ async function prims(options = {}) {
     const files = await readInputFolder(input, match);
 
     const images = files.map(file => {
-      let ctx = { ...file, ...options };
-
+      const ctx = { ...file, ...options };
       const inputExtIsValid = isInputExtensionValid(ctx);
 
       if (inputExtIsValid) return runSharp(ctx);

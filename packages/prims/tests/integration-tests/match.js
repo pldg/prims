@@ -5,7 +5,6 @@ const readFiles = require('../../lib/utils/read-files');
 
 /**
  * - Test for `match` option.
- * - It should output only *doré-inferno-dante_400w_507h.jpeg*.
  */
 
 async function testMatch() {
@@ -22,7 +21,7 @@ async function testMatch() {
     const files = await readFiles(output);
 
     assert.strictEqual(files.length, 1);
-    assert.strictEqual(files[0].name, 'doré-inferno-dante_400w_507h');
+    assert.strictEqual(files[0].name, 'doré-inferno-dante');
     assert.strictEqual(files[0].ext, 'jpeg');
   } catch (err) {
     throw new Error(err);

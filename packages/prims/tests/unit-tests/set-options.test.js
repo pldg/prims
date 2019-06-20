@@ -1,17 +1,23 @@
 const path = require('path');
 const setOptions = require('../../lib/set-options');
-const { default_input_path, default_output_dir } = require('../constants');
+const {
+  default_input_path,
+  default_output_dir
+} = require('../constants');
 
 describe('Set options', () => {
   test('options === undefined should return defaults', () => {
     const input = default_input_path;
 
-    expect(setOptions({})).toEqual({
+    expect(setOptions()).toEqual({
       input,
       match: false,
       output: path.resolve(input, default_output_dir),
       formats: {},
       resize: {},
+      naming: {
+        separator: '_'
+      },
       withMetadata: false,
       log: false
     });
@@ -29,6 +35,10 @@ describe('Set options', () => {
       },
       resize: {
         widths: [1920]
+      },
+      naming: {
+        separator: '_',
+        width: true
       },
       withMetadata: true,
       log: true
@@ -54,6 +64,9 @@ describe('Set options', () => {
       output: path.resolve(default_input_path, default_output_dir),
       formats: {},
       resize: {},
+      naming: {
+        separator: '_'
+      },
       withMetadata: false,
       log: false
     });

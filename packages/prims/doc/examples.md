@@ -1,7 +1,5 @@
 # Examples
 
-See also [integration-tests](../tests/integration-tests) for more examples.
-
 ## Without options
 
 ```js
@@ -10,72 +8,159 @@ const prims = require('prims');
 prims();
 ```
 
-1. Load files from current working directory (unsupported formats are automatically skipped).
-2. Compress images to [sharp defaults](http://sharp.pixelplumbing.com/en/stable/api-output/) (preserve original format).
-3. Rename each image `[name]_[width]w_[height]w.[ext]`.
-4. Output images to `path.join(process.cwd(), 'processed-images')`.
+- If `input` option is not set, load files from current working directory (unsupported formats are automatically skipped).
+- If `output` option is not set, output images to `path.join(process.cwd(), 'processed-images')` folder.
+- If `formats` option is not set, compress images to [sharp defaults](http://sharp.pixelplumbing.com/en/stable/api-output/), preserving original format (`.jpg` images will be converted to `.jpeg`).
+- If `resize` option is not set, do not resize images.
+
+Output:
+
+- `[name].[ext]`
+
+## Input and output
+
+```js
+const prims = require('prims');
+
+prims({
+  input: path.resolve(__dirname, './images'),
+  output: path.resolve(__dirname, './output_imgs'),
+});
+```
+
+- Load files from `images` folder.
+- Output images to `./output_imgs`.
+
+Output:
+
+- `[name].[ext]`
+
+## Resize width
+
+```js
+const prims = require('prims');
+
+prims({
+  resize: {
+    widths: [ 300, 700 ]
+  }
+});
+```
+
+- Because `resize.heights` is omitted, height for each image is calculated automatically to preserve aspect ratio.
+
+Output:
+
+- `[name]_300w.[ext]`
+- `[name]_700w.[ext]`
+
+## Naming
+
+By default if you resize only the image width, the output name it'll contains only the width dimension, unless you set `options.naming.height` to `true`.
+
+You can also choose a char separator with `options.naming.separator` to separate image name from its dimensions.
+
+```js
+const prims = require('prims');
+
+prims({
+  resize: {
+    widths: [ 300, 700 ]
+  },
+  naming: {
+    separator: '@',
+    height: true
+  }
+});
+```
+
+Output:
+
+- `[name]@300w@[height]h.[ext]`
+- `[name]@700w@[height]h.[ext]`
 
 ## Resize height and width
 
 ```js
 const prims = require('prims');
 
-const options = {
-  input: path.resolve(__dirname, './images'),
-  output: path.resolve(__dirname, './output_imgs'),
+prims({
   resize: {
-    widths: [ 720, 1280 ],
-    heights: [ 480, 360 ]
+    widths: [ 300, 700 ],
+    heights: [ 500, 900 ]
   }
-};
-
-prims(options);
+});
 ```
 
-Let assume `images` folder contains only *sample.jpg*.
+- Images are [resized](http://sharp.pixelplumbing.com/en/stable/api-resize/) to all possible `widths` and `heights` combinations.
 
-1. Load files from `images` folder.
-2. Compress *sample.jpg* to [sharp defaults](http://sharp.pixelplumbing.com/en/stable/api-output/) (preserve original format).
-3. *sample.jpg* is [resized](http://sharp.pixelplumbing.com/en/stable/api-resize/) to those width/height combinations:
-    - sample_720w_480h.jpeg
-    - sample_720w_360h.jpeg
-    - sample_1280w_480h.jpeg
-    - sample_1280w_360h.jpeg
-4. Output to `./output_imgs`.
+Output:
 
-Note: If an input image has `.jpg` will be converted to `.jpeg`.
+- `[name]_300w_500h.[ext]`
+- `[name]_300w_900h.[ext]`
+- `[name]_700w_500h.[ext]`
+- `[name]_700w_900h.[ext]`
+
+## Convert
+
+```js
+const prims = require('prims');
+
+prims({
+  formats: {
+    png: {},
+    webp: {}
+  }
+});
+```
+
+- Images are converted to [png](http://sharp.pixelplumbing.com/en/stable/api-output/#png) and [webp](http://sharp.pixelplumbing.com/en/stable/api-output/#webp) using Sharp default values.
+
+Output:
+
+- `[name].png`
+- `[name].webp`
 
 ## Convert and resize
 
 ```js
 const prims = require('prims');
 
-const options = {
-  input: path.resolve(__dirname, './images'),
+prims({
   formats: {
-    png: {},
-    webp: {}
+    png: {
+      compressionLevel: 3
+    },
+    webp: {
+      quality: 60
+    },
+    jpeg: {
+      quality: 70,
+      progressive: true
+    }
   },
   resize: {
-    widths: [ 720, 1280 ],
-    heights: [ 480, 360 ]
+    widths: [ 300, 700 ],
+    heights: [ 500, 900 ],
+    fit: 'fill'
   }
-};
-
-prims(options);
+});
 ```
 
-Let assume `images` folder contains only *sample.jpg*.
+- Images are converted to [`png`](http://sharp.pixelplumbing.com/en/stable/api-output/#png) with a compression level of 3, to [`webp`](http://sharp.pixelplumbing.com/en/stable/api-output/#webp) with 60% quality, and to [`jpeg`](http://sharp.pixelplumbing.com/en/stable/api-output/#jpeg) at 70% quality using progressive scan.
+- The converted images will also be [resized](http://sharp.pixelplumbing.com/en/stable/api-resize/) to all possible `widths` and `heights` combinations. Use `fill` to ignore the aspect ratio and stretch both provided dimensions.
 
-1. Load files from `images` folder.
-2. *sample.jpg* will be converted to [png](http://sharp.pixelplumbing.com/en/stable/api-output/#png) and [webp](http://sharp.pixelplumbing.com/en/stable/api-output/#webp) using Sharp default values.
-3. The converted *sample.png* and *sample.webp* will also be [resized](http://sharp.pixelplumbing.com/en/stable/api-resize/):
-    - sample_720w_480h.png
-    - sample_720w_360h.png
-    - sample_1280w_480h.png
-    - sample_1280w_360h.png
-    - sample_720w_480h.webp
-    - sample_720w_360h.webp
-    - sample_1280w_480h.webp
-    - sample_1280w_360h.webp
-4. Output to `path.join(process.cwd(), 'processed-images')`.
+Output:
+
+- `[name]_300w_500h.jpeg`
+- `[name]_300w_900h.jpeg`
+- `[name]_700w_500h.jpeg`
+- `[name]_700w_900h.jpeg`
+- `[name]_300w_500h.png`
+- `[name]_300w_900h.png`
+- `[name]_700w_500h.png`
+- `[name]_700w_900h.png`
+- `[name]_300w_500h.webp`
+- `[name]_300w_900h.webp`
+- `[name]_700w_500h.webp`
+- `[name]_700w_900h.webp`
