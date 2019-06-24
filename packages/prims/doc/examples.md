@@ -20,6 +20,7 @@ Output:
 ## Input and output
 
 ```js
+const path = require('path');
 const prims = require('prims');
 
 prims({
@@ -56,7 +57,7 @@ Output:
 
 ## Naming
 
-By default if you resize only the image width, the output name it'll contains only the width dimension, unless you set `options.naming.height` to `true`.
+By default if you resize only the image width, the output name will include only the width dimension, unless you set `options.naming.height` to `true`.
 
 You can also choose a char separator with `options.naming.separator` to separate image name from its dimensions.
 

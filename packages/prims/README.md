@@ -2,7 +2,7 @@
 
 ![downloads-badge](https://img.shields.io/npm/dt/prims.svg)
 
-A program built on top of [sharp](https://github.com/lovell/sharp) to batch processing images from an input directory. A simple way to generate [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
+Batch processing images from an input directory. A simple way to generate [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
 
 - Process multiple images.
 - Convert to `jpeg`, `png`, `webp`, `tiff`.
@@ -11,7 +11,7 @@ A program built on top of [sharp](https://github.com/lovell/sharp) to batch proc
 - Preserve or remove image metadata.
 - Customize naming convention.
 - Optional interactive CLI.
-- Lightweight (sharp is the only dependency).
+- Lightweight ([sharp](https://github.com/lovell/sharp) is the only dependency).
 - Runs in nodejs v8 and up.
 
 ## Install
@@ -23,6 +23,7 @@ You can also install the optional [prims-cli](https://github.com/pldg/prims/blob
 ## Quick Start
 
 ```js
+const path = require('path');
 const prims = require('prims');
 
 prims({
@@ -67,7 +68,3 @@ Go to [api](https://github.com/pldg/prims/blob/master/packages/prims/doc/api.md)
 `yarn run test`
 
 See [tests](https://github.com/pldg/prims/tree/master/packages/prims/tests) folder.
-
-## Contribution
-
-Contributions are welcome.
