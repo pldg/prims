@@ -44,7 +44,6 @@ function ask_heights() {
   }]);
 }
 
-// Resize fit option
 // http://sharp.pixelplumbing.com/en/stable/api-resize/#parameters
 function ask_fit() {
   return inquirer.prompt([{

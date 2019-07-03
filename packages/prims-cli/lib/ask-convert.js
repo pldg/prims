@@ -6,11 +6,11 @@ async function ask_convert(convert = {}) {
 
   if (format !== 'Do not convert') {
     if (format === 'png') {
-      const { compressionLevel } = await ask_png_compression();
+      const { compressionLevel } = await ask_compression();
 
       convert[format] = { compressionLevel };
     } else {
-      const { quality } = await ask_jpeg_tiff_webp_compression();
+      const { quality } = await ask_quality();
 
       convert[format] = { quality };
     }
@@ -41,7 +41,8 @@ function ask_format() {
   }]);
 }
 
-function ask_png_compression() {
+// PNG compression level
+function ask_compression() {
   return inquirer.prompt([{
     type: 'input',
     name: 'compressionLevel',
@@ -49,23 +50,24 @@ function ask_png_compression() {
     filter: compressionLevel => Number(compressionLevel),
     validate: compressionLevel => {
       if (isNaN(compressionLevel)) {
-        logError('onlyNums');
+        errorOnlyNums();
         return false;
       } else if (compressionLevel >= 0 && compressionLevel <= 9) {
         return true;
       } else {
-        throw new Error('You can set compression level from 0 to 9');
+        throw new Error('You can set compression from 0 to 9');
       }
     },
     default: 9
   }]);
 }
 
-function ask_jpeg_tiff_webp_compression() {
+// JPEG, WEBP, TIFF compression quality
+function ask_quality() {
   return inquirer.prompt([{
     type: 'input',
     name: 'quality',
-    message: 'Set format quality (from 1 to 100)',
+    message: 'Set compression quality (from 1 to 100)',
     filter: quality => Number(quality),
     validate: quality => {
       if (isNaN(quality)) {

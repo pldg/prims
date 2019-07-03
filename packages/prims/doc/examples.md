@@ -69,8 +69,8 @@ prims({
     widths: [ 300, 700 ]
   },
   naming: {
-    separator: '@',
-    height: true
+    height: true,
+    separator: '@'
   }
 });
 ```
