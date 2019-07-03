@@ -2,17 +2,17 @@
 
 ![downloads-badge](https://img.shields.io/npm/dt/prims.svg)
 
-Batch processing images from an input directory. A simple way to generate [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
+Batch processing images from an input directory, a simple way to generate [responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
 
-- Process multiple images.
-- Convert to `jpeg`, `png`, `webp`, `tiff`.
-- Resize to a list of specified widths and heights.
-- Fit image (cover, contain, fill, inside, outside).
-- Preserve or remove image metadata.
-- Customize naming convention.
-- Optional interactive CLI.
-- Lightweight ([sharp](https://github.com/lovell/sharp) is the only dependency).
-- Runs in nodejs v8 and up.
+- Process multiple images
+- Convert to `jpeg`, `png`, `webp`, `tiff`
+- Resize to a list of specified widths and heights
+- Fit image (cover, contain, fill, inside, outside)
+- Preserve or remove image metadata
+- Customize naming convention
+- Optional interactive CLI
+- Lightweight ([sharp](https://github.com/lovell/sharp) is the only dependency)
+- Runs in nodejs v8 and up
 
 ## Install
 
@@ -57,14 +57,14 @@ Output:
 
 ## Examples
 
-Go to [examples](https://github.com/pldg/prims/blob/master/packages/prims/doc/examples.md) page.
+Go to [examples](doc/examples.md) page.
 
 ## API
 
-Go to [api](https://github.com/pldg/prims/blob/master/packages/prims/doc/api.md) page.
+Go to [api](doc/api.md) page.
 
-## Test locally
+## Test
 
 `yarn run test`
 
-See [tests](https://github.com/pldg/prims/tree/master/packages/prims/tests) folder.
+See [tests](tests/) folder.
