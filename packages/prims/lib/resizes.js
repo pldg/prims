@@ -11,9 +11,7 @@ function resizes(ctx) {
 
       resizedImages.push(resized);
     }
-  }
-
-  if (!widths && heights) {
+  } else if (!widths && heights) {
     for (const height of heights) {
       const resized = image
         .resize({ height, ...resize })
@@ -21,9 +19,7 @@ function resizes(ctx) {
 
       resizedImages.push(resized);
     }
-  }
-
-  if (widths && heights) {
+  } else if (widths && heights) {
     for (const width of widths) {
       for (const height of heights) {
         const resized = image

@@ -2,9 +2,9 @@ const readFiles = require('./utils/read-files');
 
 async function readInputFolder(input, match) {
   try {
-    let files = await readFiles(input);
+    const files = await readFiles(input);
 
-    files = files
+    return files
       .filter(file => {
         const isFolder = file === undefined;
 
@@ -15,8 +15,6 @@ async function readInputFolder(input, match) {
         }
       })
       .map(file => file);
-
-    return files;
   } catch (err) {
     throw new Error(err);
   }
