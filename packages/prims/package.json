@@ -2,7 +2,7 @@
   "name": "prims",
   "version": "0.2.0",
   "license": "Apache-2.0",
-  "description": "Batch processing images. A simple way to generate responsive images.",
+  "description": "Batch processing images, a simple way to generate responsive images",
   "author": {
     "email": "luca.poldelmengo@gmail.com",
     "name": "Luca Poldelmengo",
@@ -23,6 +23,7 @@
     "jest": "^24.8.0"
   },
   "keywords": [
+    "prims",
     "responsive",
     "image",
     "images",
@@ -37,7 +38,18 @@
     "webp",
     "png",
     "tiff",
-    "sharp"
+    "sharp",
+    "breakpoints",
+    "media",
+    "query",
+    "picture",
+    "element",
+    "img",
+    "responsive images",
+    "responsive breakpoints",
+    "responsive design",
+    "media queries",
+    "picture element"
   ],
   "engines": {
     "node": ">= 8"

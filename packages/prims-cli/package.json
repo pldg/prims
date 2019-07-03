@@ -2,7 +2,7 @@
   "name": "prims-cli",
   "version": "0.2.0",
   "license": "Apache-2.0",
-  "description": "Batch processing images. A simple way to generate responsive images.",
+  "description": "Batch processing images, a simple way to generate responsive images",
   "author": {
     "email": "luca.poldelmengo@gmail.com",
     "name": "Luca Poldelmengo",
@@ -21,6 +21,8 @@
     "prims": "^0.2.0"
   },
   "keywords": [
+    "prims",
+    "prims-cli",
     "responsive",
     "image",
     "images",
@@ -39,7 +41,18 @@
     "cli",
     "command line interface",
     "inquirer",
-    "sharp"
+    "sharp",
+    "breakpoints",
+    "media",
+    "query",
+    "picture",
+    "element",
+    "img",
+    "responsive images",
+    "responsive breakpoints",
+    "responsive design",
+    "media queries",
+    "picture element"
   ],
   "engines": {
     "node": ">= 8"
